@@ -1,0 +1,18 @@
+{
+  "author": "Oliver Herdin",
+  "name": "DynamicBuffer",
+  "description": "Dynamic buffers can be used for fast string concatenation. They are initialized with a fixed size node Buffer, which will be replaced with a larger one transparently when needed.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/DDjarod/DynamicBuffer",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/DDJarod/DynamicBuffer.git"
+  },
+  "engines": {
+    "node": "~0.6.2"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "main": "./DynamicBuffer.js"
+}

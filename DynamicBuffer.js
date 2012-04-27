@@ -1,5 +1,5 @@
-/* 
-Copyright (C) 2012 Oliver Herdin
+/*
+Copyright (C) 2012 Oliver Herdin https://github.com/DDJarod
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -19,7 +19,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-
 
 var DEFAULT_SIZE = 512,
 	DEFAULT_FACTOR = 2.0;
@@ -65,7 +64,7 @@ DynamicBuffer.prototype.write = function(_byte)
 DynamicBuffer.prototype.concat = function(_buffer)
 {
 	var buffer = "DynamicBuffer" === typeof(_buffer) ? _buffer.buffer : _buffer;
-	
+
 	ensureSize.call(this, buffer.length);
 	buffer.copy(this.buffer, 0 , this.length);
 	this.length += buffer.length;
@@ -81,15 +80,15 @@ DynamicBuffer.prototype.clone = function(_newBufferSize, _newResizeFactor)
 {
 	var size = (_newBufferSize && _newBufferSize >= this.length) ? _newBufferSize : this.buffer.length
 		, clone = new DynamicBuffer(size, _newResizeFactor || this.resizeFactor);
-	
+
 	clone.concat(this.buffer);
 	return clone;
 };
 
 /**
  * shrinks this buffer either to the given size, or the length of the current buffer.
- * This method is mainly used to squeeze out the last bytes of memory, or increase the 
- * size for large chunks of data to come  
+ * This method is mainly used to squeeze out the last bytes of memory, or increase the
+ * size for large chunks of data to come
  */
 DynamicBuffer.prototype.resizeUnderlyingBuffer = function(_size)
 {
@@ -120,7 +119,7 @@ function ensureSize(_additionalDataSize)
 	if (this.buffer.length < neededSize)
 	{
 		var oldBuffer = this.buffer;
-		/* other possibility: take the current buffer length and multiply 
+		/* other possibility: take the current buffer length and multiply
 		 * it with resizeFactor until it is large enough
 		 */
 		this.buffer = new Buffer(~~(neededSize * this.resizeFactor));
