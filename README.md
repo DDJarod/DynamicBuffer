@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/DDJarod/DynamicBuffer.png)](http://travis-ci.org/DDJarod/DynamicBuffer)
 # DynamicBuffer, a wrapper around node.js Buffer class
 
 The Buffer class of node.js by default cannot be used as buffer to concatenate strings, like StringBuilder known from java [http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html].
