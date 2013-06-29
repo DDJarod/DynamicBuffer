@@ -66,7 +66,7 @@ DynamicBuffer.prototype.concat = function(_buffer)
 	var buffer = "DynamicBuffer" === typeof(_buffer) ? _buffer.buffer : _buffer;
 
 	ensureSize.call(this, buffer.length);
-	buffer.copy(this.buffer, 0 , this.length);
+	buffer.copy(this.buffer, this.length);
 	this.length += buffer.length;
 	return this;
 };
