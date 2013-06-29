@@ -63,11 +63,12 @@ DynamicBuffer.prototype.write = function(_byte)
  */
 DynamicBuffer.prototype.concat = function(_buffer)
 {
-	var buffer = _buffer instanceof DynamicBuffer ? _buffer.buffer : _buffer;
+	var length = _buffer.length,
+		buffer = _buffer instanceof DynamicBuffer ? _buffer.buffer : _buffer;
 
-	ensureSize.call(this, buffer.length);
-	buffer.copy(this.buffer, this.length);
-	this.length += buffer.length;
+	ensureSize.call(this, length);
+	buffer.copy(this.buffer, this.length, 0, length);
+	this.length += length;
 	return this;
 };
 
